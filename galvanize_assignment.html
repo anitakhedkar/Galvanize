@@ -1,0 +1,66 @@
+
+<HTML>
+<BODY>
+
+<p id = "demo"> </p>
+
+
+<script>
+var sum_of_digits = 0;
+var numbers = ['4916-2600-1804-0530', '4779-252888-3972', '4252-278893-7978', '4556-4242-9283-2260'];
+function myFunction(num){
+ var i ;
+  for( i = 0 ; i < num.length ; i++){
+    alert("num.length is: " + num.length);
+    alert("in first for loop");
+
+    var new_sum_of_digits = 0;
+    var revised_credit_card_number;
+    var largest_credit_card_number;
+    //var credit_card_number = num.shift();//puts the first item of the array in the variable temporary
+    var credit_card_number = num[i];
+    alert("credit_card_number" + i + " is: " + credit_card_number);
+//alert("credit_card_number.length is " + credit_card_number.length);
+    //if(credit_card_number.length != 19) continue;//checks to see if its a valid credit card number
+
+
+        revised_credit_card_number = credit_card_number.replace(/-/g, "");//returning all the numbers minus the dashes
+        alert("revised_credit_card_number: " + revised_credit_card_number);
+
+        var k = 0
+        alert("k is " + k);
+        alert("revised_credit_card_number.length is " + revised_credit_card_number.length);
+        //while(var k < revised_credit_card_number.length){
+          //alert("inside while loop");
+        //  alert("k is:" + k + " and " + "revised_credit_card_number.length is: " + revised_credit_card_number.length);
+          //new_sum_of_digits += revised_credit_card_number[k];
+          //k++;
+          //alert(new_sum_of_digits);
+        //  }
+
+        while (revised_credit_card_number) {
+          //alert("inside while loop");
+         new_sum_of_digits += revised_credit_card_number % 10 ;
+         revised_credit_card_number = Math.floor(revised_credit_card_number/10);
+          }
+
+          alert("new_sum_of_digits is: " + new_sum_of_digits);
+          alert("sum_of_digits is: " + sum_of_digits);
+        if (sum_of_digits <= new_sum_of_digits){
+           alert("inside the if for credit_card_number"+ i);
+           largest_credit_card_number = credit_card_number;
+            sum_of_digits = new_sum_of_digits;
+           //alert("largest_credit_card_number" + largest_credit_card_number);
+          }
+          alert("i is: " + i);
+
+    }
+return largest_credit_card_number;
+} // end of function
+
+document.getElementById("demo").innerHTML = "The credit card number that has the largest sum of the digits is: "
++ myFunction(numbers);
+
+</script>
+</BODY>
+</HTML>
